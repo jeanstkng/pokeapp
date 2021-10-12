@@ -18,6 +18,7 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {}
 
   setUpdating(event: boolean) {
+    this.updated = false;
     this.isUpdating = event;
   }
 

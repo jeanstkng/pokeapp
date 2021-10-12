@@ -34,7 +34,6 @@ export class ListComponent implements OnInit, OnChanges {
         (res: Pokemon[]) => {
           this.pokemonDataSource = res;
           this.pokemons = res;
-          this.updated = false;
         }
       )
   }
