@@ -1,1 +1,11 @@
-<p>main works!</p>
+<app-form
+  (updated)="setUpdated($event)"
+  [pokemon]="actualPokemon"
+  [isUpdating]="isUpdating"
+></app-form>
+<br />
+<app-list
+  (isUpdating)="setUpdating($event)"
+  (actualPokemon)="setActualPokemon($event)"
+  [updated]="updated"
+></app-list>

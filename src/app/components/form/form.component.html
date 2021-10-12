@@ -1,1 +1,79 @@
-<p>form works!</p>
+<h3>Nuevo Pokemon</h3>
+<div class="example-container">
+  <mat-form-field class="form-width" appearance="fill">
+    <mat-label>Ingresa el nombre</mat-label>
+    <input matInput placeholder="Charizard" [formControl]="name" required />
+    <mat-error *ngIf="name.invalid">{{ getErrorMessage("name") }}</mat-error>
+  </mat-form-field>
+</div>
+
+<div class="example-container">
+  <mat-form-field class="form-width" appearance="fill">
+    <mat-label>Ingresa el elemento</mat-label>
+    <input matInput placeholder="Poison" [formControl]="type" required />
+    <mat-error *ngIf="type.invalid">{{ getErrorMessage("type") }}</mat-error>
+  </mat-form-field>
+</div>
+
+<div class="example-container">
+  <mat-form-field class="form-width" appearance="fill">
+    <mat-label>Ingresa un url</mat-label>
+    <input
+      matInput
+      placeholder="https://www.imgur.com/pikachu.jpg"
+      [formControl]="image"
+      required
+    />
+    <mat-error *ngIf="image.invalid">{{ getErrorMessage("image") }}</mat-error>
+  </mat-form-field>
+</div>
+
+<div class="example-container">
+  <mat-label>Ataque</mat-label>
+  <br />
+  <mat-slider
+    [formControl]="attack"
+    thumbLabel
+    [displayWith]="formatLabel"
+    tickInterval="1"
+    step="1"
+    min="0"
+    max="100"
+    aria-label="units"
+  ></mat-slider>
+</div>
+
+<div class="example-container">
+  <mat-label>Defensa</mat-label>
+  <br />
+  <mat-slider
+    [formControl]="defense"
+    thumbLabel
+    [displayWith]="formatLabel"
+    tickInterval="1"
+    step="1"
+    min="0"
+    max="100"
+    aria-label="units"
+  ></mat-slider>
+</div>
+
+<div class="example-container">
+  <mat-label>Vida</mat-label>
+  <br />
+  <mat-slider
+    [formControl]="hp"
+    thumbLabel
+    [displayWith]="formatLabel"
+    tickInterval="2"
+    step="2"
+    min="0"
+    max="100"
+    aria-label="units"
+  ></mat-slider>
+</div>
+<br />
+<button mat-raised-button color="primary" (click)="isUpdating ? updatePokemon() : createPokemon()">
+  {{ isUpdating ? "Actualizar" : "Crear" }}
+</button>
+<br>
